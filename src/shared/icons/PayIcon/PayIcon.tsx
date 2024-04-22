@@ -1,4 +1,5 @@
 import {memo, ReactNode} from 'react';
+import {useAppSelector} from "../../hooks/Redux/redux";
 
 interface PayIconProps {
     className?: string
@@ -7,6 +8,8 @@ interface PayIconProps {
 
 
 export const PayIcon = memo((props: PayIconProps) => {
+    const {theme} = useAppSelector(state => state.themeAppSlice)
+
     const {
         className,
         children,
@@ -18,7 +21,7 @@ export const PayIcon = memo((props: PayIconProps) => {
         <svg xmlns="http://www.w3.org/2000/svg" id="Filled" viewBox="0 0 24 24"
              width="35"
              height="35"
-             fill="white"
+             fill={theme ? "white" : "rgba(34,35,35,0.94)"}
         >
             <path d="M19,3H5A5.006,5.006,0,0,0,0,8H24A5.006,5.006,0,0,0,19,3Z"/>
             <path

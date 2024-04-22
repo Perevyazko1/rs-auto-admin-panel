@@ -19,7 +19,6 @@ function App() {
 
     return (
         <ThemeProvider theme={darkTheme}>
-
             <DrawerBar/>
         </ThemeProvider>
     );

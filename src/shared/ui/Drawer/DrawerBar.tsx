@@ -117,7 +117,9 @@ export default function MiniDrawer() {
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
-        <Toolbar>
+        <Toolbar
+            sx={{backgroundColor:"#202020"}}
+        >
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -128,7 +130,7 @@ export default function MiniDrawer() {
               ...(open && { display: 'none' }),
             }}
           >
-            Меню
+            <MenuIcon/>
           </IconButton>
           <Typography variant="h6" noWrap component="div">
             RS-AUTO
