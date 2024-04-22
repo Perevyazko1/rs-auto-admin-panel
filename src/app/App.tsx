@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../logo.svg';
 import {Drawer} from "@mui/material";
-import DrawerBar from "../shared/Drawer/DrawerBar";
+import DrawerBar from "../shared/ui/Drawer/DrawerBar";
 
 function App() {
     return (

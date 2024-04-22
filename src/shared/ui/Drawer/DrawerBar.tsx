@@ -15,11 +15,11 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import {useState} from "react";
 import CustomTable from "../CustomTable/CustomTable"
-import {RecordReceptionIcon} from "../ui/icons/RecordReceptionIcon/RecordReceptionIcon";
-import {MenuIcon} from "../ui/icons/MenuIcon/MenuIcon";
-import {SearchIcon} from "../ui/icons/SearchIcon/SearchIcon";
-import {SettingsIcon} from "../ui/icons/SettingsIcon/SettingsIcon";
-import {PayIcon} from "../ui/icons/PayIcon/PayIcon";
+import {RecordReceptionIcon} from "../../icons/RecordReceptionIcon/RecordReceptionIcon";
+import {MenuIcon} from "../../icons/MenuIcon/MenuIcon";
+import {SearchIcon} from "../../icons/SearchIcon/SearchIcon";
+import {SettingsIcon} from "../../icons/SettingsIcon/SettingsIcon";
+import {PayIcon} from "../../icons/PayIcon/PayIcon";
 
 const drawerWidth = 240;
 
