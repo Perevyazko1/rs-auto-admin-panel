@@ -20,6 +20,7 @@ import {MenuIcon} from "../../icons/MenuIcon/MenuIcon";
 import {SearchIcon} from "../../icons/SearchIcon/SearchIcon";
 import {SettingsIcon} from "../../icons/SettingsIcon/SettingsIcon";
 import {PayIcon} from "../../icons/PayIcon/PayIcon";
+import {ThemeSwitch} from "../ThemeSwitch/ThemeSwitch";
 
 const drawerWidth = 240;
 
@@ -132,6 +133,7 @@ export default function MiniDrawer() {
           <Typography variant="h6" noWrap component="div">
             RS-AUTO
           </Typography>
+            <ThemeSwitch/>
         </Toolbar>
       </AppBar>
       <DrawerBar variant="permanent" open={open}>

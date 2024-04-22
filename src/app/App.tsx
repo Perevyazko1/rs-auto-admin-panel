@@ -2,14 +2,23 @@ import React from 'react';
 import logo from '../logo.svg';
 import {Drawer} from "@mui/material";
 import DrawerBar from "../shared/ui/Drawer/DrawerBar";
+import {createTheme, ThemeProvider} from "@mui/material";
+import {ThemeSwitch} from "../shared/ui/ThemeSwitch/ThemeSwitch";
+
 
 function App() {
-    return (
-        <div>
-            frgdg
-            <DrawerBar/>
+    const darkTheme = createTheme({
+    palette: {
+        mode: "dark",
+    },
+});
 
-        </div>
+
+    return (
+        <ThemeProvider theme={darkTheme}>
+
+            <DrawerBar/>
+        </ThemeProvider>
     );
 }
 
