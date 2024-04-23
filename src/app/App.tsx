@@ -11,6 +11,10 @@ function App() {
     const {theme} = useAppSelector(state => state.themeAppSlice)
 
     const darkTheme = createTheme({
+        typography: {
+            fontFamily: 'Raleway, Arial',
+            fontSize: 15
+        },
         palette: {
             mode: `${theme ? "dark" : "light"}`,
         },

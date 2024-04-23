@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {styled, useTheme, Theme, CSSObject} from '@mui/material/styles';
+import {ReactNode} from 'react';
+import {CSSObject, styled, Theme, useTheme} from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar, {AppBarProps as MuiAppBarProps} from '@mui/material/AppBar';
@@ -13,18 +14,15 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import {ReactNode, useState} from "react";
-import CustomTable from "../CustomTable/CustomTable"
 import {RecordReceptionIcon} from "../../icons/RecordReceptionIcon/RecordReceptionIcon";
 import {MenuIcon} from "../../icons/MenuIcon/MenuIcon";
-import {SearchIcon} from "../../icons/SearchIcon/SearchIcon";
 import {SettingsIcon} from "../../icons/SettingsIcon/SettingsIcon";
-import {PayIcon} from "../../icons/PayIcon/PayIcon";
 import {ThemeSwitch} from "../ThemeSwitch/ThemeSwitch";
 import {Link} from "react-router-dom";
 import {MainIcon} from "../../icons/MainIcon/MainIcon";
-import Paper from "@mui/material/Paper";
 import {useAppSelector} from "../../hooks/Redux/redux";
+import header from "../../icons/header.jpg"
+import cls from "./MiniDrawer.module.scss"
 
 
 const drawerWidth = 240;
@@ -132,7 +130,7 @@ export function MiniDrawer(props: MiniDrawerProps) {
             <CssBaseline/>
             <AppBar position="fixed" open={open}>
                 <Toolbar
-                    sx={{backgroundColor: "#202020"}}
+                    className={cls.toolbar}
                 >
                     <IconButton
                         color="inherit"
@@ -152,20 +150,23 @@ export function MiniDrawer(props: MiniDrawerProps) {
                     <ThemeSwitch/>
                 </Toolbar>
             </AppBar>
-            <Drawer variant="permanent"
+            <Drawer
+
+                variant="permanent"
                     open={open}
                     // sx={{backgroundColor: "rgb(43,43,43)"}}
 
             >
-                <DrawerHeader>
+                <DrawerHeader className={cls.headerDrawer}>
                     <IconButton onClick={handleDrawerClose}>
-                        <MenuIcon theme={customTheme? !(theme.direction === 'rtl'):(theme.direction === 'rtl')}/>
+                        {/*<MenuIcon theme={customTheme? !(theme.direction === 'rtl'):(theme.direction === 'rtl')}/>*/}
+                        <MenuIcon theme={true}/>
                     </IconButton>
                 </DrawerHeader>
                 <Divider/>
-                <List>
+                <List className={cls.drawer}>
                     {Object.entries(itemMenu).map(([key, value]) => (
-                        <Link style={{textDecoration: 'none', color: 'inherit'}} to={`${value[1]}`}>
+                        <Link style={{textDecoration: 'none',  color: 'inherit'}} to={`${value[1]}`}>
                             <ListItem key={key} disablePadding sx={{display: 'block', marginTop:"20px"}}>
                                 <ListItemButton
                                     sx={{
@@ -183,7 +184,7 @@ export function MiniDrawer(props: MiniDrawerProps) {
                                     >
                                         {value[0]}
                                     </ListItemIcon>
-                                    <ListItemText primary={key} sx={{opacity: open ? 1 : 0}}/>
+                                    <ListItemText  primary={key} sx={{fontSize:"18px" ,fontWeight: "bold",opacity: open ? 1 : 0}}/>
                                 </ListItemButton>
                             </ListItem>
                         </Link>

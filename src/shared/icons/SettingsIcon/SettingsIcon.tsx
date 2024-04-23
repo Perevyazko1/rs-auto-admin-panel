@@ -21,7 +21,7 @@ export const SettingsIcon = memo((props: SettingsIconProps) => {
         <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24"
         width="35"
         height="35"
-        fill={theme ? "white" : "rgba(34,35,35,0.94)"}
+        fill={theme ? "rgb(42, 127, 189)" : "rgb(42,71,189)"}
         >
             <path d="M12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z"/>
             <path
