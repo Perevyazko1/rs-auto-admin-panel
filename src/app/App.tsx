@@ -1,9 +1,5 @@
 import React from 'react';
-import logo from '../logo.svg';
-import {Drawer} from "@mui/material";
-import DrawerBar from "../shared/ui/Drawer/DrawerBar";
 import {createTheme, ThemeProvider} from "@mui/material";
-import {ThemeSwitch} from "../shared/ui/ThemeSwitch/ThemeSwitch";
 import {useAppSelector} from "../shared/hooks/Redux/redux";
 import {Route, Routes} from "react-router-dom";
 import {RecordPage} from "../pages/RecordPay/RecordPage";
@@ -29,7 +25,6 @@ function App() {
                 <Route path={"/record"} element={<RecordPage/>}/>
             </Routes>
 
-            <DrawerBar/>
         </ThemeProvider>
     );
 }

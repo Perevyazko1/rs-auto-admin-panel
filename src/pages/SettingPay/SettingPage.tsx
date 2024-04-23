@@ -1,4 +1,5 @@
 import {memo, ReactNode} from 'react';
+import {WrapperPage} from "../../shared/ui/WrapperPage/WrapperPage";
 
 interface SettingPageProps {
     className?: string
@@ -15,10 +16,9 @@ export const SettingPage = memo((props: SettingPageProps) => {
 
 
     return (
-        <div
-        >
+        <WrapperPage>
             {children}
             setting
-        </div>
+        </WrapperPage>
     );
 });

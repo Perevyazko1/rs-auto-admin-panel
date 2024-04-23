@@ -13,7 +13,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import {useState} from "react";
+import {ReactNode, useState} from "react";
 import CustomTable from "../CustomTable/CustomTable"
 import {RecordReceptionIcon} from "../../icons/RecordReceptionIcon/RecordReceptionIcon";
 import {MenuIcon} from "../../icons/MenuIcon/MenuIcon";
@@ -58,6 +58,7 @@ const DrawerHeader = styled('div')(({theme}) => ({
 
 interface AppBarProps extends MuiAppBarProps {
     open?: boolean;
+
 }
 
 const AppBar = styled(MuiAppBar, {
@@ -78,7 +79,7 @@ const AppBar = styled(MuiAppBar, {
     }),
 }));
 
-export const DrawerBar = styled(MuiDrawer, {shouldForwardProp: (prop) => prop !== 'open'})(
+const Drawer = styled(MuiDrawer, {shouldForwardProp: (prop) => prop !== 'open'})(
     ({theme, open}) => ({
         width: drawerWidth,
         flexShrink: 0,
@@ -94,11 +95,17 @@ export const DrawerBar = styled(MuiDrawer, {shouldForwardProp: (prop) => prop !=
         }),
     }),
 );
+interface MiniDrawerProps {
+    children?: ReactNode
+}
 
-export default function MiniDrawer() {
+export function MiniDrawer(props: MiniDrawerProps) {
+    const {
+        children,
+    } = props
+
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
-    const [icon, setIcon] = useState("иконка")
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -140,7 +147,7 @@ export default function MiniDrawer() {
                     <ThemeSwitch/>
                 </Toolbar>
             </AppBar>
-            <DrawerBar variant="permanent" open={open}>
+            <Drawer variant="permanent" open={open}>
                 <DrawerHeader>
                     <IconButton onClick={handleDrawerClose}>
                         {theme.direction === 'rtl' ? <MenuIcon/> : <MenuIcon/>}
@@ -175,10 +182,10 @@ export default function MiniDrawer() {
                         </Link>
                     ))}
                 </List>
-            </DrawerBar>
+            </Drawer>
             <Box component="main" sx={{flexGrow: 1, p: 3}}>
                 <DrawerHeader/>
-
+                {children}
             </Box>
         </Box>
     );

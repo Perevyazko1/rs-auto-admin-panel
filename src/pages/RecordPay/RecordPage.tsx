@@ -1,4 +1,5 @@
 import {memo, ReactNode} from 'react';
+import {WrapperPage} from "../../shared/ui/WrapperPage/WrapperPage";
 
 interface RecordPageProps {
     className?: string
@@ -15,10 +16,9 @@ export const RecordPage = memo((props: RecordPageProps) => {
 
 
     return (
-        <div
-        >
+        <WrapperPage>
             {children}
             record
-        </div>
+        </WrapperPage>
     );
 });
