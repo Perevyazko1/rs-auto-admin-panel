@@ -22,6 +22,9 @@ import {SettingsIcon} from "../../icons/SettingsIcon/SettingsIcon";
 import {PayIcon} from "../../icons/PayIcon/PayIcon";
 import {ThemeSwitch} from "../ThemeSwitch/ThemeSwitch";
 import {Link} from "react-router-dom";
+import {MainIcon} from "../../icons/MainIcon/MainIcon";
+import Paper from "@mui/material/Paper";
+import {useAppSelector} from "../../hooks/Redux/redux";
 
 
 const drawerWidth = 240;
@@ -95,6 +98,7 @@ const Drawer = styled(MuiDrawer, {shouldForwardProp: (prop) => prop !== 'open'})
         }),
     }),
 );
+
 interface MiniDrawerProps {
     children?: ReactNode
 }
@@ -103,6 +107,7 @@ export function MiniDrawer(props: MiniDrawerProps) {
     const {
         children,
     } = props
+    const {theme: customTheme} = useAppSelector(state => state.themeAppSlice)
 
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
@@ -116,10 +121,10 @@ export function MiniDrawer(props: MiniDrawerProps) {
     };
 
     const itemMenu = {
-        "Настройки": [<SettingsIcon/>, "/setting"],
+        "Записи": [<MainIcon/>, "/"],
         "Добавить запись": [<RecordReceptionIcon/>, "/record"],
-        "Поиск": [<SearchIcon/>, "/"],
-        "Оплата": [<PayIcon/>, "/"],
+        "Настройки": [<SettingsIcon/>, "/setting"],
+        // "Оплата": [<PayIcon/>, "/"],
     }
 
     return (
@@ -139,7 +144,7 @@ export function MiniDrawer(props: MiniDrawerProps) {
                             ...(open && {display: 'none'}),
                         }}
                     >
-                        <MenuIcon/>
+                        <MenuIcon theme={true}/>
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
                         RS-AUTO
@@ -147,19 +152,21 @@ export function MiniDrawer(props: MiniDrawerProps) {
                     <ThemeSwitch/>
                 </Toolbar>
             </AppBar>
-            <Drawer variant="permanent" open={open}>
+            <Drawer variant="permanent"
+                    open={open}
+                    // sx={{backgroundColor: "rgb(43,43,43)"}}
+
+            >
                 <DrawerHeader>
                     <IconButton onClick={handleDrawerClose}>
-                        {theme.direction === 'rtl' ? <MenuIcon/> : <MenuIcon/>}
-
-
+                        <MenuIcon theme={customTheme? !(theme.direction === 'rtl'):(theme.direction === 'rtl')}/>
                     </IconButton>
                 </DrawerHeader>
                 <Divider/>
                 <List>
                     {Object.entries(itemMenu).map(([key, value]) => (
-                        <Link style={{textDecoration: 'none', color:'inherit'}} to={`${value[1]}`}>
-                            <ListItem key={key} disablePadding sx={{display: 'block'}}>
+                        <Link style={{textDecoration: 'none', color: 'inherit'}} to={`${value[1]}`}>
+                            <ListItem key={key} disablePadding sx={{display: 'block', marginTop:"20px"}}>
                                 <ListItemButton
                                     sx={{
                                         minHeight: 48,
@@ -183,7 +190,11 @@ export function MiniDrawer(props: MiniDrawerProps) {
                     ))}
                 </List>
             </Drawer>
-            <Box component="main" sx={{flexGrow: 1, p: 3}}>
+            <Box component="main" sx={{
+                height: "100vh",
+                backgroundColor: customTheme ? "rgb(43,43,43)" : "rgba(233, 237, 243, 1)",
+                flexGrow: 1, p: 3
+            }}>
                 <DrawerHeader/>
                 {children}
             </Box>

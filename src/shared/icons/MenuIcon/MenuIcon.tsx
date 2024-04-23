@@ -4,15 +4,16 @@ import {useAppSelector} from "../../hooks/Redux/redux";
 interface MenuIconProps {
     className?: string
     children?: ReactNode
+    theme: boolean
 }
 
 
 export const MenuIcon = memo((props: MenuIconProps) => {
-    const {theme} = useAppSelector(state => state.themeAppSlice)
 
     const {
         className,
         children,
+        theme,
         ...otherProps
     } = props
 
