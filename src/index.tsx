@@ -5,6 +5,7 @@ import App from './app/App';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from "react-redux";
 import {setupStore} from "./app/store/store";
+import {HashRouter} from "react-router-dom";
 
 
 
@@ -15,7 +16,9 @@ const store = setupStore()
 
 root.render(
     <Provider store={store}>
-        <App/>
+        <HashRouter>
+          <App/>
+        </HashRouter>
     </Provider>
 );
 
