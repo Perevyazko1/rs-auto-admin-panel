@@ -2,9 +2,9 @@ import React from 'react';
 import {createTheme, ThemeProvider} from "@mui/material";
 import {useAppSelector} from "../shared/hooks/Redux/redux";
 import {Route, Routes} from "react-router-dom";
-import {RecordPage} from "../pages/RecordPay/RecordPage";
-import {MainPage} from "../pages/MainPage/MainPage";
-import {SettingPage} from "../pages/SettingPay/SettingPage";
+import {RecordPage} from "../pages/RecordPay";
+import {MainPage} from "../pages/MainPage";
+import {SettingPage} from "../pages/SettingPay";
 
 
 function App() {

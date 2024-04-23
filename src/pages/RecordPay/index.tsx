@@ -1,0 +1,1 @@
+export {DetailsRecordComponent as RecordPage} from "./ui/RecordPage.async"

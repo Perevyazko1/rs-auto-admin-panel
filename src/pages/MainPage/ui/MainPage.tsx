@@ -1,7 +1,7 @@
 import {memo, ReactNode} from 'react';
-import CustomTable from "../../shared/ui/CustomTable/CustomTable";
+import CustomTable from "../../../shared/ui/CustomTable/CustomTable";
 import * as React from "react";
-import {WrapperPage} from "../../shared/ui/WrapperPage/WrapperPage";
+import {WrapperPage} from "../../../shared/ui/WrapperPage/WrapperPage";
 
 interface MainPageProps {
     className?: string
@@ -9,7 +9,7 @@ interface MainPageProps {
 }
 
 
-export const MainPage = memo((props: MainPageProps) => {
+const MainPage = memo((props: MainPageProps) => {
     const {
         className,
         children,
@@ -25,3 +25,4 @@ export const MainPage = memo((props: MainPageProps) => {
         </WrapperPage>
     );
 });
+export default MainPage

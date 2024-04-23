@@ -1,0 +1,1 @@
+export {DetailsSettingComponent as SettingPage} from "./ui/SettingPage.async"

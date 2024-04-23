@@ -1,13 +1,13 @@
 import {memo, ReactNode} from 'react';
-import {WrapperPage} from "../../shared/ui/WrapperPage/WrapperPage";
+import {WrapperPage} from "../../../shared/ui/WrapperPage/WrapperPage";
 
-interface SettingPageProps {
+interface RecordPageProps {
     className?: string
     children?: ReactNode
 }
 
 
-export const SettingPage = memo((props: SettingPageProps) => {
+const RecordPage = memo((props: RecordPageProps) => {
     const {
         className,
         children,
@@ -18,7 +18,8 @@ export const SettingPage = memo((props: SettingPageProps) => {
     return (
         <WrapperPage>
             {children}
-            setting
+            record
         </WrapperPage>
     );
 });
+export default RecordPage
