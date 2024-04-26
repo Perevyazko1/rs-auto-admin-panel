@@ -5,6 +5,8 @@ import {Route, Routes} from "react-router-dom";
 import {RecordPage} from "../pages/RecordPay";
 import {MainPage} from "../pages/MainPage";
 import {SettingPage} from "../pages/SettingPay";
+import SignIn from "../pages/SignInPage/ui/SignInPage";
+import {SignInPage} from "../pages/SignInPage";
 
 
 function App() {
@@ -27,6 +29,7 @@ function App() {
                 <Route path={"/"} element={<MainPage/>}/>
                 <Route path={"/setting"} element={<SettingPage/>}/>
                 <Route path={"/record"} element={<RecordPage/>}/>
+                <Route path={"/sign"} element={<SignInPage/>}/>
             </Routes>
 
         </ThemeProvider>
