@@ -13,23 +13,26 @@ interface Token {
 export const postApi = createApi({
     reducerPath: 'postApi',
     baseQuery: fetchBaseQuery({
-        baseUrl:"http://127.0.0.1:8000/organization_app/",
+        baseUrl:"http://127.0.0.1:8000/",
         headers: {
     // 'Authorization': "token ab609d160173aa13aded7e95552d017221f601cd",
     'Content-Type': 'application/json'}
     }),
     tagTypes: ['Post'],
     endpoints: (build) => ({
-        getData: build.query<Photos[],Args>({
-            query:({param , source})=>({
-                url: `/api/token/` ,
+        getDataUser: build.query({
+            query:()=>({
+                url: `organization_app/organization/` ,
+                headers:{
+                    'Authorization': `Bearer ${localStorage.getItem("token")}`
+                }
 
         }),
             // providesTags: result => ["Post"]
         }),
         auth: build.mutation<Token,Auth>({
             query:({username , password})=>({
-                url: `/api/token/` ,
+                url: `organization_app/api/token/` ,
                 method: 'POST',
                 body:{
                     username:username,

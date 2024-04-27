@@ -14,6 +14,11 @@ import {createTheme, ThemeProvider} from '@mui/material/styles';
 import {postApi} from "../../../providers/api/RtkService";
 import {useEffect, useState} from "react";
 import {useCookies} from "react-cookie";
+import {useAppdispatch} from "../../../shared/hooks/Redux/redux";
+import {themeAppSlice} from "../../../providers/api/slice/ThemeSlice";
+import {authAppSlice} from "../../../providers/api/slice/AuthSlice";
+import {useNavigate} from "react-router-dom";
+import axios from "axios";
 
 function Copyright(props: any) {
     return (
@@ -32,19 +37,28 @@ function Copyright(props: any) {
 const defaultTheme = createTheme();
 
 function SignIn() {
+    const nav = useNavigate()
+    const dispatch = useAppdispatch()
+    const {authApp} = authAppSlice.actions
+    const {user} = authAppSlice.actions
+    const [username, setUsername] = useState<string>("")
+    const [password, setPassword] = useState<string>("")
 
     const [auth, {data, isLoading, error}] = postApi.useAuthMutation()
     const [cookies, setCookie] = useCookies(['refreshToken']);
 
 // Сохранение refresh токена в куки
     useEffect(() => {
-        console.log(cookies)
+        // console.log(cookies)
     }, [cookies]);
 
     useEffect(() => {
-        setCookie('refreshToken', data?.refresh, {path: '/sign', httpOnly: true, secure: true});
-        data && localStorage.setItem("token", data?.access)
-        console.log(data)
+        // setCookie('refreshToken', data?.refresh, {path: '/sign', httpOnly: true, secure: true});
+        // data && localStorage.setItem("token", data?.access)
+        // console.log(data)
+        if (data?.access) {
+            // nav("/")
+        }
     }, [data]);
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -54,6 +68,29 @@ function SignIn() {
             username: `${data.get('username')}`,
             password: `${data.get('password')}`
         })
+    };
+
+    const submit = async () => {
+        try {
+
+            const body = {
+                username: username,
+                password: password
+            }
+            const response = await axios.post('http://127.0.0.1:8000/organization_app/api/token/', body);
+            console.log(response.data);
+            setCookie('refreshToken', response.data?.refresh, {path: '/sign', httpOnly: true, secure: true});
+            response.data && localStorage.setItem("token", response.data?.access)
+            if (response.data?.access){
+                dispatch(authApp(true))
+                nav("/")
+            }
+
+            // Обработка данных от сервера
+        } catch (error) {
+            console.error('Ошибка запроса:', error);
+            // Обработка ошибки
+        }
     };
 
     return (
@@ -74,52 +111,55 @@ function SignIn() {
                     <Typography component="h1" variant="h5">
                         Вход
                     </Typography>
-                    <Box component="form" onSubmit={handleSubmit} noValidate sx={{mt: 1}}>
-                        <TextField
-                            margin="normal"
-                            required
-                            fullWidth
-                            id="username"
-                            label="Логин"
-                            name="username"
-                            autoComplete="username"
-                            autoFocus
-                        />
-                        <TextField
-                            margin="normal"
-                            required
-                            fullWidth
-                            name="password"
-                            label="Пароль"
-                            type="password"
-                            id="password"
-                            autoComplete="current-password"
-                        />
-                        {/*<FormControlLabel*/}
-                        {/*  control={<Checkbox value="remember" color="primary" />}*/}
-                        {/*  label="Remember me"*/}
-                        {/*/>*/}
-                        <Button
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            sx={{mt: 3, mb: 2}}
-                        >
-                            Войти
-                        </Button>
-                        {/*<Grid container>*/}
-                        {/*  <Grid item xs>*/}
-                        {/*    <Link href="#" variant="body2">*/}
-                        {/*      Forgot password?*/}
-                        {/*    </Link>*/}
-                        {/*  </Grid>*/}
-                        {/*  <Grid item>*/}
-                        {/*    <Link href="#" variant="body2">*/}
-                        {/*      {"Don't have an account? Sign Up"}*/}
-                        {/*    </Link>*/}
-                        {/*  </Grid>*/}
-                        {/*</Grid>*/}
-                    </Box>
+                    <TextField
+                        value={username}
+                        onChange={(event) => setUsername(event.target.value)}
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="username"
+                        label="Логин"
+                        name="username"
+                        autoComplete="username"
+                        autoFocus
+                    />
+                    <TextField
+                        value={password}
+                        onChange={(event) => setPassword(event.target.value)}
+                        margin="normal"
+                        required
+                        fullWidth
+                        name="password"
+                        label="Пароль"
+                        type="password"
+                        id="password"
+                        autoComplete="current-password"
+                    />
+                    {/*<FormControlLabel*/}
+                    {/*  control={<Checkbox value="remember" color="primary" />}*/}
+                    {/*  label="Remember me"*/}
+                    {/*/>*/}
+                    <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        sx={{mt: 3, mb: 2}}
+                        onClick={submit}
+                    >
+                        Войти
+                    </Button>
+                    {/*<Grid container>*/}
+                    {/*  <Grid item xs>*/}
+                    {/*    <Link href="#" variant="body2">*/}
+                    {/*      Forgot password?*/}
+                    {/*    </Link>*/}
+                    {/*  </Grid>*/}
+                    {/*  <Grid item>*/}
+                    {/*    <Link href="#" variant="body2">*/}
+                    {/*      {"Don't have an account? Sign Up"}*/}
+                    {/*    </Link>*/}
+                    {/*  </Grid>*/}
+                    {/*</Grid>*/}
                 </Box>
                 <Copyright sx={{mt: 8, mb: 4}}/>
             </Container>
