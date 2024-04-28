@@ -19,6 +19,7 @@ import {themeAppSlice} from "../../../providers/api/slice/ThemeSlice";
 import {authAppSlice} from "../../../providers/api/slice/AuthSlice";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
+import {API_URL} from "../../../providers/api/axios/axios";
 
 function Copyright(props: any) {
     return (
@@ -77,7 +78,7 @@ function SignIn() {
                 username: username,
                 password: password
             }
-            const response = await axios.post('http://127.0.0.1:8000/organization_app/api/token/', body);
+            const response = await axios.post(`${API_URL}organization_app/api/token/`, body);
             console.log(response.data);
 
             if(response.data){
@@ -86,6 +87,7 @@ function SignIn() {
             }
 
             if (response.data?.access){
+                localStorage.setItem("organization", username)
                 dispatch(authApp({auth:true,user:username}))
                 nav("/")
             }

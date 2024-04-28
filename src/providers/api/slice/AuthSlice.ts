@@ -21,8 +21,9 @@ export interface AuthState {
     userData: Organization
     isAuth: Auth
 }
-
+const organization = localStorage.getItem("organization")
 const initialState: AuthState = {
+
 
     userData: {
         geolocation: "",
@@ -35,8 +36,8 @@ const initialState: AuthState = {
 
     },
     isAuth: {
-        auth: false,
-        user: "Неизвестно"
+        auth: !!sessionStorage.getItem("refresh"),
+        user: organization? organization :"Неизвестно"
     }
 }
 

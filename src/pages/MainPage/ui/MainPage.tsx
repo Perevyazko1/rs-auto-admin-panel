@@ -20,7 +20,7 @@ const MainPage = memo((props: MainPageProps) => {
         const fetchData = async () => {
             try {
 
-                await executeRequest('GET', 'http://127.0.0.1:8000/organization_app/get_reception/');
+                await executeRequest('GET', 'organization_app/get_reception/');
                 // const req = await $api.get('http://127.0.0.1:8000/organization_app/get_reception/');
                 // console.log(req.data)
                 console.log(data)
