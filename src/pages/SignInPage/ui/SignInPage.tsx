@@ -79,8 +79,12 @@ function SignIn() {
             }
             const response = await axios.post('http://127.0.0.1:8000/organization_app/api/token/', body);
             console.log(response.data);
-            setCookie('refreshToken', response.data?.refresh, {path: '/sign', httpOnly: true, secure: true});
-            response.data && localStorage.setItem("token", response.data?.access)
+
+            if(response.data){
+                localStorage.setItem("token", response.data?.access)
+                sessionStorage.setItem("refresh",response.data?.refresh)
+            }
+
             if (response.data?.access){
                 dispatch(authApp(true))
                 nav("/")

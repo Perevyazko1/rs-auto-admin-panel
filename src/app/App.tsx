@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {createTheme, ThemeProvider} from "@mui/material";
 import {useAppSelector} from "../shared/hooks/Redux/redux";
 import {Route, Routes} from "react-router-dom";
@@ -7,10 +7,12 @@ import {MainPage} from "../pages/MainPage";
 import {SettingPage} from "../pages/SettingPay";
 import SignIn from "../pages/SignInPage/ui/SignInPage";
 import {SignInPage} from "../pages/SignInPage";
+import ProtectedRoute from "../shared/ui/ProtectedRoute/ProtectedRoute";
 
 
 function App() {
     const {theme} = useAppSelector(state => state.themeAppSlice)
+    const {isAuth} = useAppSelector(state => state.authAppSlice )
 
     const darkTheme = createTheme({
         typography: {
@@ -26,9 +28,9 @@ function App() {
     return (
         <ThemeProvider theme={darkTheme}>
             <Routes>
-                <Route path={"/"} element={<MainPage/>}/>
-                <Route path={"/setting"} element={<SettingPage/>}/>
-                <Route path={"/record"} element={<RecordPage/>}/>
+                <Route path={"/"} element={<ProtectedRoute isAuth={isAuth} component={<MainPage/>}/>}/>
+                <Route path={"/setting"} element={<ProtectedRoute isAuth={isAuth}   component={<SettingPage/>}/>}/>
+                <Route path={"/record"} element={<ProtectedRoute isAuth={isAuth} component={<RecordPage/>}/>}/>
                 <Route path={"/sign"} element={<SignInPage/>}/>
             </Routes>
 
