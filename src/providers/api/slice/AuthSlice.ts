@@ -1,17 +1,25 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-interface Organization {
-        geolocation: string
-        telegram_name: string
-        phone: string
-        name_organization: string
-        logo_organization: string
-        email: string
-        username: string
 
-    }
+interface Organization {
+    geolocation: string
+    telegram_name: string
+    phone: string
+    name_organization: string
+    logo_organization: string
+    email: string
+    username: string
+
+}
+
+interface Auth {
+    auth: boolean
+    user: string
+
+}
+
 export interface AuthState {
     userData: Organization
-    isAuth: boolean
+    isAuth: Auth
 }
 
 const initialState: AuthState = {
@@ -26,14 +34,17 @@ const initialState: AuthState = {
         username: "",
 
     },
-    isAuth: false
+    isAuth: {
+        auth: false,
+        user: "Неизвестно"
+    }
 }
 
 export const authAppSlice = createSlice({
     name: 'authApp',
     initialState,
     reducers: {
-        authApp(state, action: PayloadAction<boolean>) {
+        authApp(state, action: PayloadAction<Auth>) {
             state.isAuth = action.payload
         },
         user(state, action: PayloadAction<Organization>) {

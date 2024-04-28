@@ -106,6 +106,8 @@ export function MiniDrawer(props: MiniDrawerProps) {
         children,
     } = props
     const {theme: customTheme} = useAppSelector(state => state.themeAppSlice)
+        const {isAuth} = useAppSelector(state => state.authAppSlice )
+
 
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
@@ -145,7 +147,7 @@ export function MiniDrawer(props: MiniDrawerProps) {
                         <MenuIcon theme={true}/>
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        RS-AUTO
+                        {isAuth.user.toUpperCase()}
                     </Typography>
                     <ThemeSwitch/>
                 </Toolbar>

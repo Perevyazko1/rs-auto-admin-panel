@@ -28,9 +28,9 @@ function App() {
     return (
         <ThemeProvider theme={darkTheme}>
             <Routes>
-                <Route path={"/"} element={<ProtectedRoute isAuth={isAuth} component={<MainPage/>}/>}/>
-                <Route path={"/setting"} element={<ProtectedRoute isAuth={isAuth}   component={<SettingPage/>}/>}/>
-                <Route path={"/record"} element={<ProtectedRoute isAuth={isAuth} component={<RecordPage/>}/>}/>
+                <Route path={"/"} element={<ProtectedRoute isAuth={isAuth.auth} component={<MainPage/>}/>}/>
+                <Route path={"/setting"} element={<ProtectedRoute isAuth={isAuth.auth}   component={<SettingPage/>}/>}/>
+                <Route path={"/record"} element={<ProtectedRoute isAuth={isAuth.auth} component={<RecordPage/>}/>}/>
                 <Route path={"/sign"} element={<SignInPage/>}/>
             </Routes>
 

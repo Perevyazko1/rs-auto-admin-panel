@@ -86,7 +86,7 @@ function SignIn() {
             }
 
             if (response.data?.access){
-                dispatch(authApp(true))
+                dispatch(authApp({auth:true,user:username}))
                 nav("/")
             }
 
