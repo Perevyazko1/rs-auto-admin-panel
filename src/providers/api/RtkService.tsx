@@ -1,6 +1,4 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/dist/query/react";
-import {Photos} from "./models/Photos";
-import {Args} from "./models/Args";
 
 interface Auth {
     username: string;

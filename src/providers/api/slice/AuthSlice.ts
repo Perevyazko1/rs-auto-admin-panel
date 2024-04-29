@@ -18,23 +18,14 @@ interface Auth {
 }
 
 export interface AuthState {
-    userData: Organization
+    userData: Organization[]
     isAuth: Auth
 }
 const organization = localStorage.getItem("organization")
 const initialState: AuthState = {
 
 
-    userData: {
-        geolocation: "",
-        telegram_name: "",
-        phone: "",
-        name_organization: "",
-        logo_organization: "",
-        email: "",
-        username: "",
-
-    },
+    userData: [],
     isAuth: {
         auth: !!sessionStorage.getItem("refresh"),
         user: organization? organization :"Неизвестно"
@@ -48,7 +39,7 @@ export const authAppSlice = createSlice({
         authApp(state, action: PayloadAction<Auth>) {
             state.isAuth = action.payload
         },
-        user(state, action: PayloadAction<Organization>) {
+        user(state, action: PayloadAction<Organization[]>) {
             state.userData = action.payload
         },
 

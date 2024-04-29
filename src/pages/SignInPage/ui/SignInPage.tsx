@@ -1,21 +1,17 @@
 import * as React from 'react';
+import {useEffect, useState} from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import {createTheme, ThemeProvider} from '@mui/material/styles';
 import {postApi} from "../../../providers/api/RtkService";
-import {useEffect, useState} from "react";
 import {useCookies} from "react-cookie";
 import {useAppdispatch} from "../../../shared/hooks/Redux/redux";
-import {themeAppSlice} from "../../../providers/api/slice/ThemeSlice";
 import {authAppSlice} from "../../../providers/api/slice/AuthSlice";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
@@ -41,35 +37,12 @@ function SignIn() {
     const nav = useNavigate()
     const dispatch = useAppdispatch()
     const {authApp} = authAppSlice.actions
-    const {user} = authAppSlice.actions
     const [username, setUsername] = useState<string>("")
     const [password, setPassword] = useState<string>("")
 
     const [auth, {data, isLoading, error}] = postApi.useAuthMutation()
-    const [cookies, setCookie] = useCookies(['refreshToken']);
 
-// Сохранение refresh токена в куки
-    useEffect(() => {
-        // console.log(cookies)
-    }, [cookies]);
 
-    useEffect(() => {
-        // setCookie('refreshToken', data?.refresh, {path: '/sign', httpOnly: true, secure: true});
-        // data && localStorage.setItem("token", data?.access)
-        // console.log(data)
-        if (data?.access) {
-            // nav("/")
-        }
-    }, [data]);
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log(data)
-        auth({
-            username: `${data.get('username')}`,
-            password: `${data.get('password')}`
-        })
-    };
 
     const submit = async () => {
         try {
@@ -79,7 +52,6 @@ function SignIn() {
                 password: password
             }
             const response = await axios.post(`${API_URL}organization_app/api/token/`, body);
-            console.log(response.data);
 
             if(response.data){
                 localStorage.setItem("token", response.data?.access)

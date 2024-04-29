@@ -1,13 +1,13 @@
-import React, {Component, useEffect} from 'react';
+import React from 'react';
 import {createTheme, ThemeProvider} from "@mui/material";
 import {useAppSelector} from "../shared/hooks/Redux/redux";
 import {Route, Routes} from "react-router-dom";
 import {RecordPage} from "../pages/RecordPay";
 import {MainPage} from "../pages/MainPage";
 import {SettingPage} from "../pages/SettingPay";
-import SignIn from "../pages/SignInPage/ui/SignInPage";
 import {SignInPage} from "../pages/SignInPage";
 import ProtectedRoute from "../shared/ui/ProtectedRoute/ProtectedRoute";
+import {UnknownPage} from "../pages/404Page";
 
 
 function App() {
@@ -32,6 +32,7 @@ function App() {
                 <Route path={"/setting"} element={<ProtectedRoute isAuth={isAuth.auth}   component={<SettingPage/>}/>}/>
                 <Route path={"/record"} element={<ProtectedRoute isAuth={isAuth.auth} component={<RecordPage/>}/>}/>
                 <Route path={"/sign"} element={<SignInPage/>}/>
+                <Route path={"*"} element={<UnknownPage/>}/>
             </Routes>
 
         </ThemeProvider>

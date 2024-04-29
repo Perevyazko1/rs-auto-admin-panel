@@ -1,0 +1,1 @@
+export {DetailsUnknownComponent as UnknownPage} from "./ui/UnknownPage.async"

@@ -21,7 +21,6 @@ import {ThemeSwitch} from "../ThemeSwitch/ThemeSwitch";
 import {Link} from "react-router-dom";
 import {MainIcon} from "../../icons/MainIcon/MainIcon";
 import {useAppSelector} from "../../hooks/Redux/redux";
-import header from "../../icons/header.jpg"
 import cls from "./MiniDrawer.module.scss"
 
 

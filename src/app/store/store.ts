@@ -2,11 +2,13 @@ import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import {postApi} from "../../providers/api/RtkService";
 import themeAppSlice from "../../providers/api/slice/ThemeSlice";
 import authAppSlice from "../../providers/api/slice/AuthSlice";
+import tableAppSlice from "../../providers/api/slice/TableSlice";
 
 const rootReducer = combineReducers({
 
     themeAppSlice,
     authAppSlice,
+    tableAppSlice,
     [postApi.reducerPath]: postApi.reducer
 })
 
