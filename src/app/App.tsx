@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {StrictMode} from 'react';
 import {createTheme, ThemeProvider} from "@mui/material";
 import {useAppSelector} from "../shared/hooks/Redux/redux";
 import {Route, Routes} from "react-router-dom";
@@ -24,18 +24,18 @@ function App() {
         },
     });
 
-
+// TODO убрать стрикт мод перед деплоем
     return (
-        <ThemeProvider theme={darkTheme}>
-            <Routes>
-                <Route path={"/"} element={<ProtectedRoute isAuth={isAuth.auth} component={<MainPage/>}/>}/>
-                <Route path={"/setting"} element={<ProtectedRoute isAuth={isAuth.auth}   component={<SettingPage/>}/>}/>
-                <Route path={"/record"} element={<ProtectedRoute isAuth={isAuth.auth} component={<RecordPage/>}/>}/>
-                <Route path={"/sign"} element={<SignInPage/>}/>
-                <Route path={"*"} element={<UnknownPage/>}/>
-            </Routes>
-
-        </ThemeProvider>
+            <ThemeProvider theme={darkTheme}>
+                <Routes>
+                    <Route path={"/"} element={<ProtectedRoute isAuth={isAuth.auth} component={<MainPage/>}/>}/>
+                    <Route path={"/setting"}
+                           element={<ProtectedRoute isAuth={isAuth.auth} component={<SettingPage/>}/>}/>
+                    <Route path={"/record"} element={<ProtectedRoute isAuth={isAuth.auth} component={<RecordPage/>}/>}/>
+                    <Route path={"/sign"} element={<SignInPage/>}/>
+                    <Route path={"*"} element={<UnknownPage/>}/>
+                </Routes>
+            </ThemeProvider>
     );
 }
 

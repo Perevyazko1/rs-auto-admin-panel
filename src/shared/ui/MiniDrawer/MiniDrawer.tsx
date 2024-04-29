@@ -105,7 +105,7 @@ export function MiniDrawer(props: MiniDrawerProps) {
         children,
     } = props
     const {theme: customTheme} = useAppSelector(state => state.themeAppSlice)
-        const {isAuth} = useAppSelector(state => state.authAppSlice )
+    const {isAuth} = useAppSelector(state => state.authAppSlice)
 
 
     const theme = useTheme();
@@ -154,8 +154,8 @@ export function MiniDrawer(props: MiniDrawerProps) {
             <Drawer
 
                 variant="permanent"
-                    open={open}
-                    // sx={{backgroundColor: "rgb(43,43,43)"}}
+                open={open}
+                // sx={{backgroundColor: "rgb(43,43,43)"}}
 
             >
                 <DrawerHeader className={cls.headerDrawer}>
@@ -167,8 +167,8 @@ export function MiniDrawer(props: MiniDrawerProps) {
                 <Divider/>
                 <List className={cls.drawer}>
                     {Object.entries(itemMenu).map(([key, value]) => (
-                        <Link style={{textDecoration: 'none',  color: 'inherit'}} to={`${value[1]}`}>
-                            <ListItem key={key} disablePadding sx={{display: 'block', marginTop:"20px"}}>
+                        <Link key={key} style={{textDecoration: 'none', color: 'inherit'}} to={`${value[1]}`}>
+                            <ListItem disablePadding sx={{display: 'block', marginTop: "20px"}}>
                                 <ListItemButton
                                     sx={{
                                         minHeight: 48,
@@ -185,7 +185,8 @@ export function MiniDrawer(props: MiniDrawerProps) {
                                     >
                                         {value[0]}
                                     </ListItemIcon>
-                                    <ListItemText  primary={key} sx={{fontSize:"18px" ,fontWeight: "bold",opacity: open ? 1 : 0}}/>
+                                    <ListItemText primary={key}
+                                                  sx={{fontSize: "18px", fontWeight: "bold", opacity: open ? 1 : 0}}/>
                                 </ListItemButton>
                             </ListItem>
                         </Link>

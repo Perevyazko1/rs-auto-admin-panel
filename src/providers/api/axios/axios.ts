@@ -36,7 +36,6 @@ $api.interceptors.response.use((config) => {
             }
 
             const response = await axios.post<Token>(`${API_URL}organization_app/api/token/refresh/`, body)
-            console.log(response.data)
             localStorage.setItem("token", response.data.access)
             return $api.request(error.config);
         } catch (e) {

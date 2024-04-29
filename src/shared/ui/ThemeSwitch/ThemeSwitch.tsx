@@ -79,7 +79,7 @@ export const ThemeSwitch = memo((props: ThemeSwitchProps) => {
             <FormControlLabel
                 checked={theme}
                 onChange={()=>dispatch(themeApp(!theme))}
-                control={<MaterialUISwitch defaultChecked/>}
+                control={<MaterialUISwitch/>}
                 label=""
             />
         </div>
