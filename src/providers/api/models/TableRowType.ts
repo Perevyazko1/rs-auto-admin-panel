@@ -1,5 +1,6 @@
 import {ClientType} from "./ClientType";
 import {OrganizationType} from "./OrganizationType";
+import {CarType} from "./CarType";
 
 export interface TableRowType {
     'id': string
@@ -10,6 +11,7 @@ export interface TableRowType {
     'status_record': string
     'complaint': string
     'cost': number
+    'car' : CarType
     'organization': OrganizationType
 
 }

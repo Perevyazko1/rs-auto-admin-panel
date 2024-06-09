@@ -2,6 +2,7 @@
   "name": "front_rs_auto_admin",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://perevyazko1.github.io/rs-auto-admin",
   "dependencies": {
     "@mui/lab": "^5.0.0-alpha.166",
     "@reduxjs/toolkit": "^1.9.7",
