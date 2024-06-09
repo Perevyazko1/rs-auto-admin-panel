@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/rs-auto-admin-panel/static/css/main.9d23a906.css",
-    "main.js": "/rs-auto-admin-panel/static/js/main.2f1ad27a.js",
+    "main.js": "/rs-auto-admin-panel/static/js/main.f6ac9d5a.js",
     "static/css/6.40ca1603.chunk.css": "/rs-auto-admin-panel/static/css/6.40ca1603.chunk.css",
     "static/js/6.9359378c.chunk.js": "/rs-auto-admin-panel/static/js/6.9359378c.chunk.js",
     "static/css/663.40ca1603.chunk.css": "/rs-auto-admin-panel/static/css/663.40ca1603.chunk.css",
-    "static/js/663.ae0fc9d2.chunk.js": "/rs-auto-admin-panel/static/js/663.ae0fc9d2.chunk.js",
+    "static/js/663.b533fe9d.chunk.js": "/rs-auto-admin-panel/static/js/663.b533fe9d.chunk.js",
     "static/css/240.40ca1603.chunk.css": "/rs-auto-admin-panel/static/css/240.40ca1603.chunk.css",
     "static/js/240.86317332.chunk.js": "/rs-auto-admin-panel/static/js/240.86317332.chunk.js",
-    "static/js/807.3f2ccb0d.chunk.js": "/rs-auto-admin-panel/static/js/807.3f2ccb0d.chunk.js",
+    "static/js/807.85240a05.chunk.js": "/rs-auto-admin-panel/static/js/807.85240a05.chunk.js",
     "static/js/467.40f10708.chunk.js": "/rs-auto-admin-panel/static/js/467.40f10708.chunk.js",
     "static/js/453.9cddf3f5.chunk.js": "/rs-auto-admin-panel/static/js/453.9cddf3f5.chunk.js",
     "static/js/118.f83f8b85.chunk.js": "/rs-auto-admin-panel/static/js/118.f83f8b85.chunk.js",
@@ -18,14 +18,14 @@
     "static/js/487.1ea6aa37.chunk.js": "/rs-auto-admin-panel/static/js/487.1ea6aa37.chunk.js",
     "index.html": "/rs-auto-admin-panel/index.html",
     "main.9d23a906.css.map": "/rs-auto-admin-panel/static/css/main.9d23a906.css.map",
-    "main.2f1ad27a.js.map": "/rs-auto-admin-panel/static/js/main.2f1ad27a.js.map",
+    "main.f6ac9d5a.js.map": "/rs-auto-admin-panel/static/js/main.f6ac9d5a.js.map",
     "6.40ca1603.chunk.css.map": "/rs-auto-admin-panel/static/css/6.40ca1603.chunk.css.map",
     "6.9359378c.chunk.js.map": "/rs-auto-admin-panel/static/js/6.9359378c.chunk.js.map",
     "663.40ca1603.chunk.css.map": "/rs-auto-admin-panel/static/css/663.40ca1603.chunk.css.map",
-    "663.ae0fc9d2.chunk.js.map": "/rs-auto-admin-panel/static/js/663.ae0fc9d2.chunk.js.map",
+    "663.b533fe9d.chunk.js.map": "/rs-auto-admin-panel/static/js/663.b533fe9d.chunk.js.map",
     "240.40ca1603.chunk.css.map": "/rs-auto-admin-panel/static/css/240.40ca1603.chunk.css.map",
     "240.86317332.chunk.js.map": "/rs-auto-admin-panel/static/js/240.86317332.chunk.js.map",
-    "807.3f2ccb0d.chunk.js.map": "/rs-auto-admin-panel/static/js/807.3f2ccb0d.chunk.js.map",
+    "807.85240a05.chunk.js.map": "/rs-auto-admin-panel/static/js/807.85240a05.chunk.js.map",
     "467.40f10708.chunk.js.map": "/rs-auto-admin-panel/static/js/467.40f10708.chunk.js.map",
     "453.9cddf3f5.chunk.js.map": "/rs-auto-admin-panel/static/js/453.9cddf3f5.chunk.js.map",
     "118.f83f8b85.chunk.js.map": "/rs-auto-admin-panel/static/js/118.f83f8b85.chunk.js.map",
@@ -36,6 +36,6 @@
   },
   "entrypoints": [
     "static/css/main.9d23a906.css",
-    "static/js/main.2f1ad27a.js"
+    "static/js/main.f6ac9d5a.js"
   ]
 }
