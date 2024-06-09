@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkfront_rs_auto_admin=self.webpackChunkfront_rs_auto_admin||[]).push([[467],{1467:(s,e,n)=>{n.r(e),n.d(e,{default:()=>t});var r=n(5043),a=n(579);const t=(0,r.memo)((s=>{const{className:e,children:n,...r}=s;return(0,a.jsx)("div",{children:"404"})}))}}]);
+//# sourceMappingURL=467.40f10708.chunk.js.map
