@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/rs-auto-admin-panel/static/css/main.9d23a906.css",
-    "main.js": "/rs-auto-admin-panel/static/js/main.b66816a4.js",
+    "main.js": "/rs-auto-admin-panel/static/js/main.0d7eec83.js",
     "static/css/6.9729acef.chunk.css": "/rs-auto-admin-panel/static/css/6.9729acef.chunk.css",
     "static/js/6.b1f7ecdb.chunk.js": "/rs-auto-admin-panel/static/js/6.b1f7ecdb.chunk.js",
     "static/css/663.9729acef.chunk.css": "/rs-auto-admin-panel/static/css/663.9729acef.chunk.css",
-    "static/js/663.5c42ad54.chunk.js": "/rs-auto-admin-panel/static/js/663.5c42ad54.chunk.js",
+    "static/js/663.9ea76f86.chunk.js": "/rs-auto-admin-panel/static/js/663.9ea76f86.chunk.js",
     "static/css/354.7eb5b1f4.chunk.css": "/rs-auto-admin-panel/static/css/354.7eb5b1f4.chunk.css",
     "static/js/354.66fce61a.chunk.js": "/rs-auto-admin-panel/static/js/354.66fce61a.chunk.js",
     "static/js/754.f96d9dab.chunk.js": "/rs-auto-admin-panel/static/js/754.f96d9dab.chunk.js",
@@ -19,11 +19,11 @@
     "static/js/507.097605cb.chunk.js": "/rs-auto-admin-panel/static/js/507.097605cb.chunk.js",
     "index.html": "/rs-auto-admin-panel/index.html",
     "main.9d23a906.css.map": "/rs-auto-admin-panel/static/css/main.9d23a906.css.map",
-    "main.b66816a4.js.map": "/rs-auto-admin-panel/static/js/main.b66816a4.js.map",
+    "main.0d7eec83.js.map": "/rs-auto-admin-panel/static/js/main.0d7eec83.js.map",
     "6.9729acef.chunk.css.map": "/rs-auto-admin-panel/static/css/6.9729acef.chunk.css.map",
     "6.b1f7ecdb.chunk.js.map": "/rs-auto-admin-panel/static/js/6.b1f7ecdb.chunk.js.map",
     "663.9729acef.chunk.css.map": "/rs-auto-admin-panel/static/css/663.9729acef.chunk.css.map",
-    "663.5c42ad54.chunk.js.map": "/rs-auto-admin-panel/static/js/663.5c42ad54.chunk.js.map",
+    "663.9ea76f86.chunk.js.map": "/rs-auto-admin-panel/static/js/663.9ea76f86.chunk.js.map",
     "354.7eb5b1f4.chunk.css.map": "/rs-auto-admin-panel/static/css/354.7eb5b1f4.chunk.css.map",
     "354.66fce61a.chunk.js.map": "/rs-auto-admin-panel/static/js/354.66fce61a.chunk.js.map",
     "754.f96d9dab.chunk.js.map": "/rs-auto-admin-panel/static/js/754.f96d9dab.chunk.js.map",
@@ -38,6 +38,6 @@
   },
   "entrypoints": [
     "static/css/main.9d23a906.css",
-    "static/js/main.b66816a4.js"
+    "static/js/main.0d7eec83.js"
   ]
 }
